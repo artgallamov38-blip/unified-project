@@ -14,8 +14,12 @@ public class Messenger {
     Group teenagers = new Group("Студенты КФУ", valiulin, new User[MAX], new Message[MAX]);
     Group arc_and_kali = new Group("Короли мехмата", arslanov, new User[MAX], new Message[MAX]);
 
+    Group[] groups = {teenagers, arc_and_kali};
+
     Channel kfu = new Channel("КФУ", "лучший институт Казани", users, arslanov);
     Channel itis = new Channel("ИТИС", "лучший институт Казани по проге", users, enikeev);
+
+    Channel[] channels = {kfu, itis};
 
     Post post1 = new Post("Важно", "в КФУ сегодня был геймдев, все молодцы", enikeev, "28.11.25");
     Post post2 = new Post("Автоматы", "сегодня автоматы всем, кто придет на лекцию Еникееа", enikeev, "31.11.25");
@@ -30,13 +34,22 @@ public class Messenger {
         enikeev.addFriend(gallamov);
         enikeev.addFriend(valiulin);
 
+        arc_and_kali.addUser(kalimullin);
+        arc_and_kali.addUser(arslanov);
+
+        teenagers.addUser(gallamov);
+        teenagers.addUser(valiulin);
+
+
         arc_and_kali.sendMessage(kalimullin, "Почему лекции не будет в понедельник", "30.11.25/23:59");
         arc_and_kali.sendMessage(arslanov, "мне нужен перерыв", "01.12.25/00:00");
 
-        teachers.sendMessage(gallamov, "ты тупой", "25.10.21");
-        teachers.sendMessage(valiulin, "сам такой", "25.10.21");
-        teachers.sendMessage(gallamov, "зато ты не еврей", "26.10.21");
-        teachers.sendMessage(valiulin, "ты гордишься что ты еврей?", "26.10.21");
+
+
+        teenagers.sendMessage(gallamov, "ты тупой", "25.10.21");
+        teenagers.sendMessage(valiulin, "сам такой", "25.10.21");
+        teenagers.sendMessage(gallamov, "зато ты не еврей", "26.10.21");
+        teenagers.sendMessage(valiulin, "ты гордишься что ты еврей?", "26.10.21");
 
         kfu.addPost(post1);
         kfu.addPost(post2);
@@ -44,7 +57,7 @@ public class Messenger {
         itis.addPost(post2);
         itis.addPost(post3);
 
-
+        System.out.println("Friends");
         for (User user:users) {
             System.out.println("Пользователь " + user.name + ":");
             System.out.println("Друзья:");
@@ -52,6 +65,23 @@ public class Messenger {
                 System.out.println(user1.name);
             }
             System.out.println();
+        }
+
+        System.out.println("Groups");
+        for (Group group:groups) {
+            System.out.println(group.name);
+            for (Message message:group.messages) {
+                System.out.println(message);
+            }
+            System.out.println();
+        }
+
+        System.out.println("Posts");
+        for (Channel channel:channels) {
+            System.out.println(channel.name);
+            for (Post post:channel.posts) {
+                System.out.println(post);
+            }
         }
 
     }

@@ -18,7 +18,13 @@ public class Channel {
     }
 
     public void addPost(Post post) {
-        if (posts.length == MAX_USERS) {
+        int countPosts = 0;
+        for (Post post1 : posts) {
+            if (post1 != null) {
+                countPosts++;
+            }
+        }
+        if (countPosts == MAX_USERS) {
             System.out.println("превышено количество создаваемых постов");
         }
         else {
@@ -37,7 +43,13 @@ public class Channel {
     }
 
     public void delPost(Post post) {
-        if (posts.length == 0) {
+        int countPosts = 0;
+        for (Post post1 : posts) {
+            if (post1 != null) {
+                countPosts++;
+            }
+        }
+        if (countPosts == 0) {
             System.out.println("и так нет постов");
         }
         else {

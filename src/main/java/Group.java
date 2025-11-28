@@ -16,17 +16,24 @@ public class Group {
     }
 
     public void addUser(User user) {
-        if (users.length == MAX_USERS) {
-            System.out.println("превышено количество участников");
+        int countUsers = 0;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null) {
+                countUsers += 1;
+            }
         }
+        if (countUsers == MAX_USERS){
+            System.out.println("Превышено кол-во участников");
+        }
+
         else {
-            for (int i = 0; i < users.length; i++) {
-                if (users[i] == user) {
+            for (int j = 0; j < users.length; j++) {
+                if (users[j] == user) {
                     System.out.println("он уже есть там");
                     break;
                 }
-                if (users[i] == null) {
-                    users[i] = user;
+                if (users[j] == null) {
+                    users[j] = user;
                     break;
                 }
             }
@@ -35,7 +42,13 @@ public class Group {
     }
 
     public void delUser(User user) {
-        if (users.length == 0) {
+        int countUsers = 0;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null) {
+                countUsers += 1;
+            }
+        }
+        if (countUsers == 0) {
             System.out.println("нечего удалять");
         }
         else {

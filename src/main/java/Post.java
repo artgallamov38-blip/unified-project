@@ -18,4 +18,9 @@ public class Post {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String toString() {
+        String toUsers = "";
+        return "опубликовал: " + user.name + "название" + title + "текст" + description + "дата" + date;
+    }
 }
