@@ -29,7 +29,7 @@ public class User {
 
     public void addFriend(User newFriend) {
         for (User user : this.friends) {
-            if (user.getId().equals(newFriend.getId())) {
+            if (user != null && user.getId().equals(newFriend.getId())) {
                 System.out.println("Пользователь уже в друзьях");
                 return;
             }
