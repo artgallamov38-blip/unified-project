@@ -4,10 +4,18 @@ public class Post {
     public User user;
     public String date;
 
-    Post(String title, String description, User user, String date) {
+    public Post(String title, String description, User user, String date) {
         this.title = title;
         this.description = description;
         this.user = user;
         this.date = date;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
