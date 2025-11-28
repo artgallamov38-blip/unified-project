@@ -33,6 +33,6 @@ public class Message {
     public String toString() {
         String toUsers = "";
         for (User user : toUser) {toUsers += user.name + " ";}
-        return date + " " + "от " + fromUser + "кому " + toUsers + "текст сообщения: " + text;
+        return date + " " + "от " + fromUser.name + " кому " + toUsers + "текст сообщения: " + text;
     }
 }
