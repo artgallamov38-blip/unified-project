@@ -1,9 +1,9 @@
 public class Message {
     private String date;
     private String text;
-    final User fromUser;
-    final User toUser;
-    public Message(String date, String text, User fromUser, User toUser) {
+    private User fromUser;
+    private User[] toUser;
+    public Message(String date, String text, User fromUser, User[] toUser) {
         this.date = date;
         this.text = text;
         this.fromUser = fromUser;
@@ -27,7 +27,7 @@ public class Message {
     public User getFromUser() {
         return fromUser;
     }
-    public User getToUser() {
+    public User[] getToUser() {
         return toUser;
     }
 }
