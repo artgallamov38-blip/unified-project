@@ -1,0 +1,33 @@
+public class Message {
+    private String date;
+    private String text;
+    final User fromUser;
+    final User toUser;
+    public Message(String date, String text, User fromUser, User toUser) {
+        this.date = date;
+        this.text = text;
+        this.fromUser = fromUser;
+        this.toUser = toUser;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
+    public String getDate() {
+        return date;
+    }
+    public String getText() {
+        return text;
+    }
+    public User getFromUser() {
+        return fromUser;
+    }
+    public User getToUser() {
+        return toUser;
+    }
+}
