@@ -23,6 +23,10 @@ public class Channel {
         }
         else {
             for (int i = 0; i < posts.length; i++) {
+                if (posts[i] == post) {
+                    System.out.println("Он уже есть");
+                    break;
+                }
                 if (posts[i] == null) {
                     posts[i] = post;
                     break;

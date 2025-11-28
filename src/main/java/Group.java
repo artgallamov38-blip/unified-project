@@ -21,6 +21,10 @@ public class Group {
         }
         else {
             for (int i = 0; i < users.length; i++) {
+                if (users[i] == user) {
+                    System.out.println("он уже есть там");
+                    break;
+                }
                 if (users[i] == null) {
                     users[i] = user;
                     break;
