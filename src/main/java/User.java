@@ -28,11 +28,16 @@ public class User {
     }
 
     public void addFriend(User newFriend) {
+        if (newFriend.name == name) {
+            System.out.println("Нельзя себя добавлять");
+            return;
+        }
         for (User user : this.friends) {
             if (user != null && user.getId().equals(newFriend.getId())) {
                 System.out.println("Пользователь уже в друзьях");
                 return;
             }
+
         }
         for (int i = 0; i < friends.length; i++) {
             if (friends[i] == null) {

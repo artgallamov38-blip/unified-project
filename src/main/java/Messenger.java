@@ -26,6 +26,7 @@ public class Messenger {
     Post post3 = new Post("Спартакиада", "поддержим итис, ведь они играют против Ипо в воскресенье", valiulin, "29.11.25");
 
     public void run() {
+        valiulin.addFriend(valiulin);
         arslanov.addFriend(valiulin);
         arslanov.addFriend(zubkova);
         arslanov.addFriend(kalimullin);
@@ -33,6 +34,7 @@ public class Messenger {
         zubkova.addFriend(kalimullin);
         enikeev.addFriend(gallamov);
         enikeev.addFriend(valiulin);
+        gallamov.addFriend(valiulin);
 
         arc_and_kali.addUser(kalimullin);
         arc_and_kali.addUser(arslanov);
@@ -53,15 +55,18 @@ public class Messenger {
 
         kfu.addPost(post1);
         kfu.addPost(post2);
-
+        kfu.delPost(post1);
         itis.addPost(post2);
         itis.addPost(post3);
-
+        System.out.println();
         System.out.println("Friends");
         for (User user:users) {
             System.out.println("Пользователь " + user.name + ":");
             System.out.println("Друзья:");
             for (User user1:user.friends) {
+                if (user1 == null){
+                    break;
+                }
                 System.out.println(user1.name);
             }
             System.out.println();
@@ -71,6 +76,9 @@ public class Messenger {
         for (Group group:groups) {
             System.out.println(group.name);
             for (Message message:group.messages) {
+                if (message == null){
+                    break;
+                }
                 System.out.println(message);
             }
             System.out.println();
@@ -80,6 +88,9 @@ public class Messenger {
         for (Channel channel:channels) {
             System.out.println(channel.name);
             for (Post post:channel.posts) {
+                if (post == null){
+                    break;
+                }
                 System.out.println(post);
             }
         }

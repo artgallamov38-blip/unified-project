@@ -21,6 +21,6 @@ public class Post {
 
     public String toString() {
         String toUsers = "";
-        return "опубликовал: " + user.name + "название" + title + "текст" + description + "дата" + date;
+        return "опубликовал : " + user.name + " название " + title + " текст " + description + " дата " + date;
     }
 }

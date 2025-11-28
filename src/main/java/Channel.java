@@ -4,7 +4,7 @@ public class Channel {
     public User admin;
     public User[] users;
     private final int MAX_USERS = 15;
-    public Post[] posts;
+    public Post[] posts = new Post[MAX_USERS];
 
     public Channel(String name, String description, User[] users, User admin) {
         this.name = name;
@@ -43,13 +43,8 @@ public class Channel {
     }
 
     public void delPost(Post post) {
-        int countPosts = 0;
-        for (Post post1 : posts) {
-            if (post1 != null) {
-                countPosts++;
-            }
-        }
-        if (countPosts == 0) {
+
+        if (posts.length == 0) {
             System.out.println("и так нет постов");
         }
         else {
@@ -73,7 +68,13 @@ public class Channel {
     }
 
     public void addUser(User user) {
-        if (users.length == MAX_USERS) {
+        int countUser = 0;
+        for (User user1 : users) {
+            if (user1 != null) {
+                countUser++;
+            }
+        }
+        if (countUser == MAX_USERS) {
             System.out.println("превышено количество участников");
         }
         else {
