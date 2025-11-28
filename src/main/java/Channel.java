@@ -1,13 +1,99 @@
 public class Channel {
     public String name;
     public String description;
-    public String admin;
+    public User admin;
     public User[] users;
+    private final int MAX_USERS = 15;
+    public Post[] posts;
 
-    Channel(String name, String description, User[] users, String admin) {
+    public Channel(String name, String description, User[] users, User admin) {
         this.name = name;
         this.description = description;
         this.users = users;
         this.admin = admin;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void addPost(Post post) {
+        if (posts.length == MAX_USERS) {
+            System.out.println("превышено количество создаваемых постов");
+        }
+        else {
+            for (int i = 0; i < posts.length; i++) {
+                if (posts[i] == null) {
+                    posts[i] = post;
+                    break;
+                }
+            }
+        }
+
+    }
+
+    public void delPost(Post post) {
+        if (posts.length == 0) {
+            System.out.println("и так нет постов");
+        }
+        else {
+            for (int i = 0; i < posts.length; i++) {
+                if (posts[i] == post) {
+                    posts[i] = null;
+                }
+            }
+            for (int i = 0; i < posts.length; i++) {
+                if (posts[i] == null) {
+                    for (int j = i+1; j < posts.length; j++) {
+                        if (posts[j] != null) {
+                            posts[j-1] = posts[j];
+                            posts[j] = null;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void addUser(User user) {
+        if (users.length == MAX_USERS) {
+            System.out.println("превышено количество участников");
+        }
+        else {
+            for (int i = 0; i < users.length; i++) {
+                if (users[i] == null) {
+                    users[i] = user;
+                    break;
+                }
+            }
+        }
+
+    }
+
+    public void delUser(User user) {
+        if (users.length == 0) {
+            System.out.println("нечего удалять");
+        }
+        else {
+            for (int i = 0; i < users.length; i++) {
+                if (users[i] == user) {
+                    users[i] = null;
+                }
+            }
+            for (int i = 0; i < users.length; i++) {
+                if (users[i] == null) {
+                    for (int j = i+1; j < users.length; j++) {
+                        if (users[j] != null) {
+                            users[j-1] = users[j];
+                            users[j] = null;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
 }
